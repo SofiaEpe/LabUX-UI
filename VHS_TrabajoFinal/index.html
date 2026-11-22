@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Found Footage V/H/S · Archivo de cintas</title>
+  <meta name="description" content="Archivo de la saga antológica de terror found footage V/H/S: 9 cintas de 2012 a 2026.">
+
+  <!-- ============================================================
+       TIPOGRAFÍAS (Google Fonts) — las mismas del Figma
+       · Michroma ........... títulos (V/H/S, secciones, cards)
+       · Google Sans Flex ... textos de lectura y botones
+       · VT323 .............. datos técnicos de VHS (REC, años, códigos)
+       ============================================================ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:wght@400;500;600;700&family=Michroma&family=VT323&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+
+  <!-- Capa CRT global: líneas de escaneo + glitch esporádico (no bloquea clics) -->
+  <div class="crt-overlay" aria-hidden="true">
+    <div class="crt-glitch-band"></div>
+  </div>
+
+  <!-- ============================================================
+       HEADER (fijo arriba)
+       ============================================================ -->
+  <header class="header">
+    <a class="logo" href="#inicio" aria-label="V/H/S, volver al inicio">
+      <img src="assets/Logotipo.png" alt="Logotipo de V/H/S: calavera blanca">
+      <span>V/H/S</span>
+    </a>
+
+    <!-- Navegación de escritorio -->
+    <nav class="nav-desktop" aria-label="Secciones">
+      <a class="nav-link is-active" href="#inicio">Inicio</a>
+      <a class="nav-link" href="#cintas">Cintas</a>
+      <a class="nav-link" href="#expediente">Found Footage</a>
+      <a class="nav-link" href="#creditos">Créditos</a>
+    </nav>
+
+    <!-- Botón hamburguesa (solo móvil) -->
+    <button class="boton-icono menu-abrir" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu-movil">
+      <img src="assets/iconos/menu.svg" alt="Ícono de menú (tres líneas)">
+    </button>
+  </header>
+
+  <!-- Menú desplegable en móvil (pantalla completa) -->
+  <div class="menu-movil" id="menu-movil" aria-hidden="true">
+    <div class="menu-movil-top">
+      <a class="logo" href="#inicio" aria-label="V/H/S, volver al inicio"><img src="assets/Logotipo.png" alt="Logotipo de V/H/S: calavera blanca"><span>V/H/S</span></a>
+      <button class="boton-icono menu-cerrar" type="button" aria-label="Cerrar menú"><img src="assets/iconos/cerrar.svg" alt="Ícono de cerrar (equis)"></button>
+    </div>
+    <p class="antetitulo">MENÚ · ÍNDICE DE CINTAS</p>
+    <nav class="menu-movil-links" aria-label="Menú móvil">
+      <a class="menu-link" href="#inicio"><span>01</span>Inicio<img src="assets/iconos/flecha.svg" alt="Flecha que apunta a la derecha" aria-hidden="true"></a>
+      <a class="menu-link" href="#cintas"><span>02</span>Cintas<img src="assets/iconos/flecha.svg" alt="Flecha que apunta a la derecha" aria-hidden="true"></a>
+      <a class="menu-link" href="#expediente"><span>03</span>Found Footage<img src="assets/iconos/flecha.svg" alt="Flecha que apunta a la derecha" aria-hidden="true"></a>
+      <a class="menu-link" href="#creditos"><span>04</span>Créditos<img src="assets/iconos/flecha.svg" alt="Flecha que apunta a la derecha" aria-hidden="true"></a>
+    </nav>
+    <p class="menu-movil-rec"><span class="rec-punto"></span>REC • ARCHIVO EN CINTA</p>
+  </div>
+
+  <main>
+
+  <!-- ============================================================
+       HERO (túnel parallax + título V/H/S)
+       ============================================================ -->
+  <section class="hero-section" id="inicio" aria-labelledby="titulo-inicio">
+
+    <!-- Túnel de papel: 8 capas de imagen (capa1 = fondo … capa8 = la más cercana).
+         data-profundidad = cuánto se mueve cada capa con el mouse (0 casi nada, 1 mucho). -->
+    <div class="tunnel" aria-hidden="true">
+      <div data-profundidad="0.04"><img src="assets/Parallax/capa1.png" alt="Capa 1 del túnel parallax: fondo rojo oscuro con un resplandor de luz en el centro"></div>
+      <div data-profundidad="0.10"><img src="assets/Parallax/capa2.png" alt="Capa 2 del túnel parallax: calavera blanca iluminada en el centro"></div>
+      <div data-profundidad="0.18"><img src="assets/Parallax/capa3.png" alt="Capa 3 del túnel parallax: anillo de papel rojo con un pentagrama"></div>
+      <div data-profundidad="0.28"><img src="assets/Parallax/capa4.png" alt="Capa 4 del túnel parallax: anillo de papel con una calavera y una mano con garras"></div>
+      <div data-profundidad="0.40"><img src="assets/Parallax/capa5.png" alt="Capa 5 del túnel parallax: anillo de papel con calaveras y un alienígena"></div>
+      <div data-profundidad="0.54"><img src="assets/Parallax/capa6.png" alt="Capa 6 del túnel parallax: anillo de papel oscuro con una mano con garras"></div>
+      <div data-profundidad="0.70"><img src="assets/Parallax/capa7.png" alt="Capa 7 del túnel parallax: mano con garras y calavera en primer plano"></div>
+      <div data-profundidad="0.90"><img src="assets/Parallax/capa8.png" alt="Capa 8 del túnel parallax: silueta de demonio en la esquina"></div>
+      <div class="tunnel-oscuridad"></div>
+    </div>
+
+    <!-- HUD superior de cámara -->
+    <aside class="hud hud-top" aria-label="Datos de grabación">
+      <p class="hud-rec"><span class="rec-punto"></span>REC SP <span class="timecode">00:00:00</span></p>
+      <!-- Controles decorativos (solo visuales, sin interacción) -->
+      <div class="hud-controles" aria-hidden="true">
+        <span>PLAY ►</span>
+        <span>◄◄</span>
+        <span class="is-active">►</span>
+        <span>||</span>
+      </div>
+    </aside>
+
+    <!-- Contenido central -->
+    <div class="hero-contenido">
+      <h1 id="titulo-inicio" data-text="V/H/S">V/H/S</h1>
+      <p class="antetitulo">ARCHIVO RECUPERADO · 9 CINTAS · 2012 — 2026</p>
+      <p>Grabaciones presentadas como reales y descubiertas tras los hechos: a través de cámaras en mano, estática analógica y grabaciones malditas. Explora la saga antológica donde múltiples directores de culto entrelazan cortometrajes bajo la maldición de las cintas.</p>
+      <div>
+        <a class="boton boton-primario" href="#cintas">Ver las cintas <img src="assets/iconos/play.svg" alt="Ícono de reproducir" aria-hidden="true"></a>
+        <a class="boton boton-secundario" href="#expediente">¿Qué es el found footage?</a>
+      </div>
+    </div>
+
+    <!-- HUD inferior -->
+    <aside class="hud hud-bottom" aria-label="Estado de la cinta">
+      <p class="hud-tracking">TRACKING <span><i></i><i></i><i></i><i></i><i></i><i></i></span></p>
+      <a class="hud-scroll" href="#cintas">SCROLL<img src="assets/iconos/abajo.svg" alt="Flecha hacia abajo" aria-hidden="true"></a>
+      <p>CH 03</p>
+    </aside>
+  </section>
+
+  <!-- ============================================================
+       LAS CINTAS (carrusel de la saga)
+       ============================================================ -->
+  <section class="cintas-section" id="cintas" aria-labelledby="titulo-cintas">
+    <div class="seccion-encabezado">
+      <p class="antetitulo">ARCHIVO · SELECCIONA UNA CINTA</p>
+      <h2 id="titulo-cintas">Las cintas</h2>
+    </div>
+
+    <div class="cintas-escenario">
+      <!-- Flecha anterior -->
+      <button class="boton-icono flecha-anterior" type="button" aria-label="Cinta anterior"><img src="assets/iconos/izquierda.svg" alt="Flecha hacia la izquierda"></button>
+
+      <!-- Visor de carátula -->
+      <div class="visor">
+        <div class="visor-marco">
+          <img class="visor-imagen" src="assets/cintas/vhs-1.jpg" alt="Portada de V/H/S (2012)">
+          <!-- Respaldo si la imagen no existe -->
+          <div class="visor-placeholder">
+            <img src="assets/iconos/imagen.svg" alt="Ícono de imagen" aria-hidden="true">
+            <p>Inserta aquí la portada</p>
+            <p class="visor-placeholder-nombre">V/H/S (2012)</p>
+          </div>
+          <span></span>
+        </div>
+      </div>
+
+      <!-- Estante de lomos (los crea script.js a partir de los datos) -->
+      <div class="estante" role="list" aria-label="Cintas de la saga"></div>
+
+      <!-- Flecha siguiente -->
+      <button class="boton-icono flecha-siguiente" type="button" aria-label="Cinta siguiente"><img src="assets/iconos/derecha.svg" alt="Flecha hacia la derecha"></button>
+
+      <!-- Ficha de la película seleccionada -->
+      <article class="ficha" aria-live="polite">
+        <div>
+          <span class="badge badge-anio">2012</span>
+          <span class="badge badge-cinta">TAPE 56</span>
+        </div>
+        <h3>V/H/S</h3>
+        <p class="ficha-sinopsis"></p>
+        <p class="ficha-etiqueta">SEGMENTOS</p>
+        <p class="ficha-segmentos"></p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       EXPEDIENTE / FOUND FOOTAGE (manchas de tinta con el mouse + 3 tarjetas)
+       ============================================================ -->
+  <section class="expediente-section" id="expediente" aria-labelledby="titulo-expediente">
+
+    <!-- Manchas de tinta: script.js las dibuja en este lienzo donde pasa el mouse y se desvanecen solas -->
+    <canvas class="manchas" aria-hidden="true"></canvas>
+
+    <div class="seccion-encabezado">
+      <p class="antetitulo">EXPEDIENTE · FOUND FOOTAGE</p>
+      <h2 id="titulo-expediente">Detrás de las cintas</h2>
+    </div>
+
+    <div class="cards-grid">
+      <article class="card">
+        <div>
+          <span class="badge badge-cinta">DISTRIBUCIÓN Y PRODUCCIÓN</span>
+        </div>
+        <h3>La mente detrás de las cintas</h3>
+        <span></span>
+        <p>La saga V/H/S es producida y distribuida principalmente por Bloody Disgusting y Shudder (junto a socios como Magnet Releasing y Studio71). Estas compañías de nicho especializadas en terror han convertido la franquicia en una plataforma colectiva donde cineastas independientes exploran el género sin las restricciones del cine comercial.</p>
+      </article>
+      <article class="card">
+        <div>
+          <span class="badge badge-cinta">FORMATO CINEMATOGRÁFICO</span>
+        </div>
+        <h3>¿Qué es el found footage?</h3>
+        <span></span>
+        <p>El found footage (metraje encontrado) es un subgénero del terror donde la película se presenta como una grabación real descubierta tras los hechos. Utiliza cámaras de mano, perspectivas en primera persona, interferencias visuales y estética analógica para sumergir al espectador en una experiencia hiperrealista e inquietante.</p>
+      </article>
+      <article class="card">
+        <div>
+          <span class="badge badge-cinta">FORMATO ANTOLÓGICO</span>
+        </div>
+        <h3>El arte de la antología terrorífica</h3>
+        <span></span>
+        <p>A diferencia de las secuelas tradicionales con una sola historia continua, V/H/S destaca por su formato antológico. Cada entrega reúne a múltiples directores de culto para ofrecer cortometrajes independientes, entrelazados por una enigmática trama envolvente que sirve de marco para la maldición de las cintas.</p>
+      </article>
+    </div>
+  </section>
+
+  </main>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="footer-section" id="creditos" aria-labelledby="titulo-creditos">
+    <h2 class="sr-only" id="titulo-creditos">Créditos</h2>
+    <div class="footer-principal">
+      <div class="footer-marca">
+        <a class="logo logo-grande" href="#inicio" aria-label="V/H/S, volver al inicio"><img src="assets/Logotipo.png" alt="Logotipo de V/H/S: calavera blanca"></a>
+        <p>Archivo de la saga antológica de terror found footage.</p>
+      </div>
+
+      <!-- Productoras: reemplaza los href="#" por los enlaces oficiales -->
+      <div class="footer-empresas">
+        <article class="empresa">
+          <h3>Bloody Disgusting</h3>
+          <p>Productora y distribuidora</p>
+          <div class="empresa-redes">
+            <a href="#" aria-label="Sitio web de Bloody Disgusting"><img src="assets/iconos/web.svg" alt="Ícono de sitio web"></a>
+            <a href="#" aria-label="Instagram de Bloody Disgusting"><img src="assets/iconos/instagram.svg" alt="Ícono de Instagram"></a>
+            <a href="#" aria-label="YouTube de Bloody Disgusting"><img src="assets/iconos/youtube.svg" alt="Ícono de YouTube"></a>
+            <a href="#" aria-label="Correo de Bloody Disgusting"><img src="assets/iconos/correo.svg" alt="Ícono de correo"></a>
+          </div>
+        </article>
+        <article class="empresa">
+          <h3>Shudder</h3>
+          <p>Productora y distribuidora</p>
+          <div class="empresa-redes">
+            <a href="#" aria-label="Sitio web de Shudder"><img src="assets/iconos/web.svg" alt="Ícono de sitio web"></a>
+            <a href="#" aria-label="Instagram de Shudder"><img src="assets/iconos/instagram.svg" alt="Ícono de Instagram"></a>
+            <a href="#" aria-label="YouTube de Shudder"><img src="assets/iconos/youtube.svg" alt="Ícono de YouTube"></a>
+            <a href="#" aria-label="Correo de Shudder"><img src="assets/iconos/correo.svg" alt="Ícono de correo"></a>
+          </div>
+        </article>
+        <article class="empresa">
+          <h3>Magnet Releasing</h3>
+          <p>Socio de distribución</p>
+          <div class="empresa-redes">
+            <a href="#" aria-label="Sitio web de Magnet Releasing"><img src="assets/iconos/web.svg" alt="Ícono de sitio web"></a>
+            <a href="#" aria-label="Instagram de Magnet Releasing"><img src="assets/iconos/instagram.svg" alt="Ícono de Instagram"></a>
+            <a href="#" aria-label="YouTube de Magnet Releasing"><img src="assets/iconos/youtube.svg" alt="Ícono de YouTube"></a>
+            <a href="#" aria-label="Correo de Magnet Releasing"><img src="assets/iconos/correo.svg" alt="Ícono de correo"></a>
+          </div>
+        </article>
+        <article class="empresa">
+          <h3>Studio71</h3>
+          <p>Socio de distribución</p>
+          <div class="empresa-redes">
+            <a href="#" aria-label="Sitio web de Studio71"><img src="assets/iconos/web.svg" alt="Ícono de sitio web"></a>
+            <a href="#" aria-label="Instagram de Studio71"><img src="assets/iconos/instagram.svg" alt="Ícono de Instagram"></a>
+            <a href="#" aria-label="YouTube de Studio71"><img src="assets/iconos/youtube.svg" alt="Ícono de YouTube"></a>
+            <a href="#" aria-label="Correo de Studio71"><img src="assets/iconos/correo.svg" alt="Ícono de correo"></a>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <div class="footer-inferior">
+      <p>Proyecto académico · Laboratorio UX/UI · UAO</p>
+      <p>STOP ■ FIN DE LA CINTA</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
